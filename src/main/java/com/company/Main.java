@@ -1,11 +1,4 @@
-package main.java.com.company;
-import com.company.MeReader;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.List;
-import java.util.ArrayList;
+package com.company;
 
 
     public class Main {
