@@ -13,14 +13,14 @@ import java.util.ArrayList;
         BufferedReader objReader = null;
         try {
             String strCurrentLine;
-            boolean isNum = false;
-            Integer intNum;
-            String strNum = "a";
-            List listA = new ArrayList();
-            List listB = new ArrayList();
-            objReader = new BufferedReader(new FileReader("C:\\Users\\FoxSe\\OneDrive\\Рабочий стол\\Старое\\14.txt"));
-            while ((strCurrentLine = objReader.readLine()) != null) {
-                System.out.println(strCurrentLine);
+            boolean isNum = false; //Признак начала чтения числа в строке
+            Integer intNum; // Прочитаное число тип Integer
+            String strNum = "a"; // Прочитаное число тип String
+            List listA = new ArrayList(); // Объявление списка A
+            List listB = new ArrayList(); // Объявление списка B
+            objReader = new BufferedReader(new FileReader("C:\\Users\\FoxSe\\OneDrive\\Рабочий стол\\Старое\\14.txt")); // Открытие текстового файла
+            while ((strCurrentLine = objReader.readLine()) != null) { // Чтение строки
+                System.out.println(strCurrentLine); // Печать строки
                 for (int i = 0; i < strCurrentLine.length(); ++i) {
                     if (Character.isDigit(strCurrentLine.charAt(i))) {
                         if (isNum == false) {
@@ -33,25 +33,25 @@ import java.util.ArrayList;
                     else {
                        if (isNum == true){
                            isNum = false;
-                          listA.add(strNum);
+                          listA.add(strNum); //добавление элемента в список A
                            intNum = Integer.valueOf(strNum);
                            if ((intNum % 2) == 1 ){
-                               listB.add(strNum);
+                               listB.add(strNum); //добавление элемента в список B
                            }
                        }
                     }
                 }
                 if (isNum == true){
                     isNum = false;
-                    listA.add(strNum);
+                    listA.add(strNum); //добавление элемента в список A
                     intNum = Integer.valueOf(strNum);
                     if ((intNum % 2) == 1 ){
-                        listB.add(strNum);
+                        listB.add(strNum); //добавление элемента в список B
                     }
                 }
             }
-        System.out.println(listA);
-        System.out.println(listB);
+        System.out.println(listA); //Печать списка A
+        System.out.println(listB); //Печать списка B
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
