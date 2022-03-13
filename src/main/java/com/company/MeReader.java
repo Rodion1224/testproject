@@ -14,15 +14,15 @@ public class MeReader {
             boolean isNum = false; //Признак начала чтения числа в строке
             Integer intNum; // Прочитаное число тип Integer
             String strNum = "a"; // Прочитаное число тип String
-            List listA = new ArrayList(); // Объявление списка A
-            List listB = new ArrayList(); // Объявление списка B
+            List<String> listA = new ArrayList<String>(); // Объявление списка A
+            List<String> listB = new ArrayList<String>(); // Объявление списка B
             ClassLoader cl = this.getClass().getClassLoader();
             objReader = new BufferedReader(new FileReader(cl.getResource(filename).getFile())); // Открытие текстового файла
             while ((strCurrentLine = objReader.readLine()) != null) { // Чтение строки
                 System.out.println(strCurrentLine); // Печать строки
                 for (int i = 0; i < strCurrentLine.length(); ++i) {
                     if (Character.isDigit(strCurrentLine.charAt(i))) {
-                        if (isNum == false) {
+                        if (!isNum) {
                             strNum = Character.toString(strCurrentLine.charAt(i));
                             isNum = true;
                         } else {
@@ -30,7 +30,7 @@ public class MeReader {
                         }
                     }
                     else {
-                        if (isNum == true){
+                        if (isNum){
                             isNum = false;
                             listA.add(strNum); //добавление элемента в список A
                             intNum = Integer.valueOf(strNum);
